@@ -41,3 +41,7 @@ popd
 pushd communication_link
 ./package.sh
 popd
+
+pushd ../ros2_ws/src/ros2-ORB_SLAM2
+bloom-generate rosdebian --os-name ubuntu --os-version focal --ros-distro foxy && fakeroot debian/rules binary && mv ../*.deb ../../../packaging/
+popd

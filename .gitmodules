@@ -28,9 +28,9 @@
 [submodule "ros2_ws/src/px4_mavlink_ctrl"]
 	path = ros2_ws/src/px4_mavlink_ctrl
 	url = https://github.com/tiiuae/px4_mavlink_ctrl.git
-[submodule "ros2_ws/src/ros2-ORB_SLAM2"]
-	path = ros2_ws/src/ros2-ORB_SLAM2
-	url = https://github.com/tiiuae/ros2-ORB_SLAM2
+[submodule "ros2_ws/src/orbslam_node"]
+	path = ros2_ws/src/orbslam_node
+	url = git@github.com:tiiuae/ros2-ORB_SLAM2.git
 [submodule "tools/libsurvive"]
 	path = tools/libsurvive
 	url = https://github.com/cntools/libsurvive.git

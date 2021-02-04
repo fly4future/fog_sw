@@ -40,3 +40,9 @@
 [submodule "ros2_ws/src/mesh_com"]
 	path = ros2_ws/src/mesh_com
 	url = https://github.com/tiiuae/mesh_com.git
+[submodule "ros2_ws/src/camera/camera_control"]
+	path = ros2_ws/src/camera/camera_control
+	url = git@github.com:tiiuae/camera_control.git
+[submodule "ros2_ws/src/camera/realsense-ros"]
+	path = ros2_ws/src/camera/realsense-ros
+	url = https://github.com/IntelRealSense/realsense-ros.git

@@ -1,0 +1,9 @@
+ros2_ws/build
+ros2_ws/install
+ros2_ws/log
+packaging/*.deb
+.idea
+cmake-*/
+build/
+venv/
+ros2_ws/KeyFrameTrajectory.txt

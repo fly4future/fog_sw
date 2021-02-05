@@ -7,3 +7,6 @@ cmake-*/
 build/
 venv/
 ros2_ws/KeyFrameTrajectory.txt
+ros2_ws/src/ros-foxy-*
+*debian/
+*obj-x86_64*/

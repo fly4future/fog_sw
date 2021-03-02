@@ -3,6 +3,8 @@ ros2_ws/install
 ros2_ws/log
 packaging/*.deb
 .idea
+# needed in the root of repo for CLion compatibility
+CMakeLists.txt
 cmake-*/
 build/
 venv/

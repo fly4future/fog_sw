@@ -63,8 +63,8 @@ then
   clean_package fog_gazebo_resources
   clean_package rplidar_ros2
   clean_package octomap_server2
-  clean_package navigation
   clean_package control_interface
+  clean_package navigation
   
 fi
 
@@ -106,12 +106,12 @@ then
   move_archives
   popd > /dev/null
 
-  pushd ../ros2_ws/src/navigation > /dev/null
+  pushd ../ros2_ws/src/octomap_server2 > /dev/null
   bloom-generate rosdebian --os-name ubuntu --os-version focal --ros-distro foxy && fakeroot debian/rules binary 
   move_archives
   popd > /dev/null
 
-  pushd ../ros2_ws/src/octomap_server2 > /dev/null
+  pushd ../ros2_ws/src/navigation > /dev/null
   bloom-generate rosdebian --os-name ubuntu --os-version focal --ros-distro foxy && fakeroot debian/rules binary 
   move_archives
   popd > /dev/null

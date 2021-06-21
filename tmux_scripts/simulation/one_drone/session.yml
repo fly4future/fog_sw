@@ -25,28 +25,29 @@ windows:
       layout: even-vertical
       panes:
         - ros2 launch navigation navigation.py use_sim_time:=true
-        - 'history -s ros2 topic echo /$DRONE_DEVICE_ID/navigation/status'
   - octomap_server:
       layout: tiled
       panes:
-        - ros2 launch octomap_server2 tii_rplidar_launch.py use_sim_time:=true
-  - takeoff/land:
+        - ros2 launch octomap_server2 octomap_server.py use_sim_time:=true
+  - takeoff:
       layout: tiled
       panes:
         - 'history -s ros2 service call /$DRONE_DEVICE_ID/control_interface/arming std_srvs/srv/SetBool \"data: true\"'
-        - 'history -s ros2 service call /$DRONE_DEVICE_ID/control_interface/takeoff std_srvs/srv/SetBool \"data: true\"'
-        - 'history -s ros2 service call /$DRONE_DEVICE_ID/control_interface/land std_srvs/srv/SetBool \"data: true\"'
-  - status:
-      layout: tiled
-      panes:
-        - 'history -s ros2 topic echo /VehicleStatus_PubSubTopic'
-        - 'history -s ros2 topic echo /VehicleCommandAck_PubSubTopic'
-  - goto:
+        - 'history -s ros2 service call /$DRONE_DEVICE_ID/control_interface/takeoff std_srvs/srv/Trigger {}'
+  - goto_local:
       layout: even-vertical
       panes:
-        - 'history -s ros2 service call /$DRONE_DEVICE_ID/control_interface/local_setpoint fog_msgs/srv/Vec4 \"goal: \[0, 0, 2, 1\]\"'
-        - 'history -s ros2 service call /$DRONE_DEVICE_ID/navigation/waypoint_in fog_msgs/srv/Vec4 \"goal: \[5, 12, 2, 1\]\"'
+        - 'history -s ros2 service call /$DRONE_DEVICE_ID/navigation/local_waypoint fog_msgs/srv/Vec4 \"goal: \[0, 0, 2, 0\]\"'
+        - 'history -s ros2 service call /$DRONE_DEVICE_ID/navigation/local_waypoint fog_msgs/srv/Vec4 \"goal: \[5, 12, 2, 0\]\"'
+  - goto_gps:
+      layout: even-vertical
+      panes:
+        - 'history -s ros2 service call /$DRONE_DEVICE_ID/navigation/gps_waypoint fog_msgs/srv/Vec4 \"goal: \[47.397708, 8.5456038, 4\]\"'
         - 'history -s ros2 run navigation waypoint_publisher.py'
+  - land:
+      layout: tiled
+      panes:
+        - 'history -s ros2 service call /$DRONE_DEVICE_ID/control_interface/land std_srvs/srv/Trigger {}'
   - rviz:
       layout: tiled
       panes:
